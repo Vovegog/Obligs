@@ -14,7 +14,7 @@ def seconds_to_hms( n : int ) -> str :
     s = str(int(n%3600%60))
     return (f"{h}:{m}:{s}")
 
-print(seconds_to_hms(3600*1.57))
+print(seconds_to_hms(15486))
 
 # O3
 
@@ -155,4 +155,31 @@ print(NumOfDays(-56))
 
 # Curly braces are used for dictionaries, lists can't be hashed as a "key" in
 # a dictionary, whereas a tuple can.
+#____________________________________
+
+# O15
+
+# Consider the following code:
+
+# def something ( L : list, x : int ) -> int :
+#     x = x + 1
+#     L.insert(0,x)
+#     return len(L)
+
+# x = 4
+# T = [2, 4, 8]
+# y = something(T,x)
+
+# 4.1) What are the values of x, y, T and L after the last line of code?
+
+# x is 4
+# y is 4
+# T is [2, 4, 8]
+# L is [5, 2, 4, 8]
+
+# 4.2) Explain, in no more than 3 lines why the value of x was not modified, but the value of T was.
+
+# x is a global variable and was only modified and used inside the function.
+# When the function ends, the global variable hasn't been touched - only used.
+# Meanwhile, T is a global list where the function actively modified the list. 
 
