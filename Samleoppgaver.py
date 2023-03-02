@@ -137,3 +137,22 @@ print(NumOfDays(-56))
 
 # O14
 
+# # Consider the two following blocks of code
+
+# #1.
+
+# L1 = [1,2,3]
+# L2 = [3,2,1]
+# L3 = [1,3,2]
+# s = {L1, L2, L3}
+
+# #2. 
+
+# L1 = (1,2,3)
+# L2 = (3,2,1)
+# L3 = (1,3,2)
+# s = {L1, L2, L3}
+
+# Curly braces are used for dictionaries, lists can't be hashed as a "key" in
+# a dictionary, whereas a tuple can.
+
