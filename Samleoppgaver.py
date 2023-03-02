@@ -183,3 +183,25 @@ print(NumOfDays(-56))
 # When the function ends, the global variable hasn't been touched - only used.
 # Meanwhile, T is a global list where the function actively modified the list. 
 
+# O16
+
+def check_speed ( lane : int, speed : int ) -> str :
+    if lane == 1 :
+        return "The car is running according to the rules."
+    elif lane == 2 :
+        if 60 < speed < 100 :
+            return "The car is running according to the rules."
+        else :
+            return "The car is NOT running according to the rules."
+    elif lane == 3 :
+        if speed <= 70 :
+            return "The car is running according to the rules."
+        else :
+            return "The car is NOT running according to the rules."
+    else :
+        return "Something went wrong. Try again."
+
+print(check_speed(1,20))
+print(check_speed(1,252))
+print(check_speed(2,100))
+print(check_speed(3,72))
