@@ -127,3 +127,13 @@ print(afford_kayak(299, 11))
 
 # O13
 
+def NumOfDays ( days : int ) -> int :
+    if days < 0 or days > 365 :
+        return -1
+    else :
+        return days // 7 + 1
+    
+print(NumOfDays(-56))
+
+# O14
+
