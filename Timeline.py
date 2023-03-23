@@ -29,14 +29,12 @@ for i in range(len(temp_list)):
                            # This gives us a nested list where [i][0] is year, and [i][1] is name of the card
 
 def clearScreen():
-    if(os.name == 'posix'):
-        os.system('clear')
-    else:
-        os.system('cls')
+    os.system("cls")
 
 # Run game while True
 # Duplicate card-list for use with remove()
     # Then run game while range(len(duped_list)) > 0 and play_game is True
+clearScreen()
 
 play_game = True
 lose_game = False
