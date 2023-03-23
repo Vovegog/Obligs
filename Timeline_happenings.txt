@@ -1,0 +1,34 @@
+-19750,Huge parts of the world is buried under ice
+-19250,Humans have spread across most of the landmasses
+-15000,Humans have painted murals on the walls of the Lascaux Caves
+-14250,Humans reach North America
+-13500,Humans domesticate dogs
+-13000,Wooly rhino's go extinct
+-9750,Farming is invented
+-8500,Cattle are domesticated
+-6750,North America completely free from the ice sheets that has been covering it
+-5500,Humans develop copper metalworking
+-5000,Humans develop gold metalworking
+-4800,Invention of the wheel
+-4000,Horses are domesticated
+-2500,Construction of the Great Pyramid
+-2250,Stonehenge is built
+-2000,Invention of chariots
+-1750,Humans in Egypt develop the alphabet and writing
+-1400,Humans develop iron-smelting
+-700,First every Olympics are held
+-200,Invention of paper
+0,Roman Empire
+0,Jesus
+500,Pompeii explodes
+1000,Invention of the magnetic compass
+1200,Ghengis Khan is born
+1500,European renaissance
+1600,Shakespeare is born
+1600,Newton is born
+1730,Invention of the steam engine
+1770,US Independence
+1820,Industrial Revolution
+1840,Invention of the telegraph machine
+1900,Invention of the airplane
+1918,World War 1
