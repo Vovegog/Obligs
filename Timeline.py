@@ -1,5 +1,5 @@
 import random
-
+import os
 # 1 Create deck of cards
 # 2 Create "table"
 # 3 Have computer pull a random card onto the table
@@ -28,6 +28,12 @@ for i in range(len(temp_list)):
     game_list.append(card) # And append it as a list
                            # This gives us a nested list where [i][0] is year, and [i][1] is name of the card
 
+def clearScreen():
+    if(os.name == 'posix'):
+        os.system('clear')
+    else:
+        os.system('cls')
+
 # Run game while True
 # Duplicate card-list for use with remove()
     # Then run game while range(len(duped_list)) > 0 and play_game is True
@@ -44,7 +50,8 @@ while play_game:
     dupe_list.remove(rand) # Remove it from the playable deck of cards
 
     # Block of code for whether you want to play again
-    if lose_game == True: 
+    if lose_game == True:
+        clearScreen()
         play = input("Do you wish to try again? \"Yes\" to play again or \"No\" to exit the game.")
         if play.lower() == "no":
             break
@@ -90,3 +97,4 @@ while play_game:
                 print("You guessed wrong. You lose!")
                 lose_game = True
         
+        clearScreen()
