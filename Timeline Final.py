@@ -29,7 +29,7 @@ def clear_screen():
 
 def lose(lose:bool) -> bool:
     print("You guessed wrong. You lose!")
-    lose = True
+    global lose_game
     return lose
 
 def play_game():
@@ -38,8 +38,11 @@ def play_game():
     """
     clear_screen()
     game_list = read_cards("Timeline_happenings.txt")
+    
     play_game = True
+    global lose_game
     lose_game = False
+
     while play_game:
         dupe_list = game_list.copy() # Copy deck of cards into a playable deck
         cards_on_table = []          # Create table
