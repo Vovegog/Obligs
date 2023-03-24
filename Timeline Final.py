@@ -8,17 +8,7 @@ def read_cards(file_path):
     with open(file_path, "r") as file:
         cards = file.read()
     temp_list = []
-    # for line in cards:
-    #     temp_list.append(cards.split("\n"))
-    # temp_list = temp_list[0]
-    # game_list = []
-    # for i in range(len(temp_list)):
-    #     card = temp_list[i]
-    #     card = card.split(",")
-    #     game_list.append(card)
-#    for line in cards:
     temp_list = cards.split("\n")
-#    temp_list = temp_list[0]
     game_list = []
     for i in range(len(temp_list)):
         card = temp_list[i]
