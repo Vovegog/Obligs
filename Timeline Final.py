@@ -16,7 +16,7 @@ def read_cards(file_path):
     #     card = temp_list[i]
     #     card = card.split(",")
     #     game_list.append(card)
-    game_list = cards.split("\n").split(",")
+    game_list = cards.split(",").split("\n")
     return game_list
 
 def clear_screen():
