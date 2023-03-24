@@ -27,10 +27,6 @@ def clear_screen():
     else:
         os.system("clear")
 
-def lose(lose:bool) -> bool:
-    print("You guessed wrong. You lose!")
-    global lose_game
-    return lose
 
 def play_game():
     """
@@ -38,11 +34,8 @@ def play_game():
     """
     clear_screen()
     game_list = read_cards("Timeline_happenings.txt")
-    
     play_game = True
-    global lose_game
     lose_game = False
-
     while play_game:
         dupe_list = game_list.copy() # Copy deck of cards into a playable deck
         cards_on_table = []          # Create table
@@ -74,20 +67,20 @@ def play_game():
                 if int(cards_on_table[0][0]) <= int(cards_on_table[1][0]):
                     pass
                 else:
-                    lose(lose_game)
-                    break
+                    print("You guessed wrong. You lose!")
+                    lose_game = True
             elif guess == len(cards_on_table)-1:     # If card is added to the end of the table, check only for card to the left
                 if int(cards_on_table[guess-1][0]) <= int(cards_on_table[guess][0]):
                     pass
                 else:
-                    lose(lose_game)
-                    break
+                    print("You guessed wrong. You lose!")
+                    lose_game = True
             else:   # Check for cards to both the left AND the right
                 if int(cards_on_table[guess-1][0]) <= int(cards_on_table[guess][0] )<= int(cards_on_table[guess+1][0]):
                     pass
                 else:
-                    lose(lose_game)
-                    break
+                    print("You guessed wrong. You lose!")
+                    lose_game = True
             if dupe_list == []: # If the playable deck of cards is empty, you win! If you play again, this list will be filled over again
                 print("Congratulations! You win!")
                 lose_game = True    # Is named "lose_game", but acts more like a "play game?"
