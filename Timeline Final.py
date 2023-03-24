@@ -72,16 +72,19 @@ def play_game():
                     pass
                 else:
                     lose(lose_game)
+                    break
             elif guess == len(cards_on_table)-1:     # If card is added to the end of the table, check only for card to the left
                 if int(cards_on_table[guess-1][0]) <= int(cards_on_table[guess][0]):
                     pass
                 else:
                     lose(lose_game)
+                    break
             else:   # Check for cards to both the left AND the right
                 if int(cards_on_table[guess-1][0]) <= int(cards_on_table[guess][0] )<= int(cards_on_table[guess+1][0]):
                     pass
                 else:
                     lose(lose_game)
+                    break
             if dupe_list == []: # If the playable deck of cards is empty, you win! If you play again, this list will be filled over again
                 print("Congratulations! You win!")
                 lose_game = True    # Is named "lose_game", but acts more like a "play game?"
