@@ -10,6 +10,7 @@ def read_cards(file_path):
     temp_list = []
     for line in cards:
         cards.split("\n")
+    for line in cards:
         cards.split(",")
 #    temp_list = temp_list[0]
     game_list = []
