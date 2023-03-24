@@ -7,8 +7,9 @@ def read_cards(file_path):
     """
     with open(file_path, "r") as file:
         cards = file.read()
-    cards.split("\n")
-    cards.split(",")
+    for line in cards:
+        cards.split("\n")
+        cards.split(",")
     return cards
 
 def clear_screen():
