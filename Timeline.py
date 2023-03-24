@@ -50,7 +50,7 @@ while play_game:
     # Block of code for whether you want to play again
     if lose_game == True:
         clearScreen()
-        play = input("Do you wish to try again? \"Yes\" to play again or \"No\" to exit the game.")
+        play = input("Do you wish to try again? \"Yes\" to play again or \"No\" to exit the game: ")
         if play.lower() == "no":
             break
         elif play.lower() == "yes":
@@ -89,7 +89,7 @@ while play_game:
                 lose_game = True
         else:
             # Check both ways
-            if int(cards_on_table[guess-1][0]) <= int(cards_on_table[guess][0] )<= int(cards_on_table[guess+1][0]):
+            if int(cards_on_table[guess-1][0]) <= int(cards_on_table[guess][0]) <= int(cards_on_table[guess+1][0]):
                 pass
             else:
                 print("You guessed wrong. You lose!")
