@@ -17,7 +17,7 @@ def read_cards(file_path):
     #     card = card.split(",")
     #     game_list.append(card)
     for line in cards:
-        cards.split("\n")
+        temp_list = cards.split("\n")
 #    temp_list = temp_list[0]
     game_list = []
     for i in range(len(temp_list)):
