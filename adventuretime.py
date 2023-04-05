@@ -15,8 +15,8 @@ game_over = False
 stage = 1
 
 screens = {
-    "stage1": { "description": "You wake up in a small clearing in the woods. You can hear birds chirp around you as you start looking around. \
-No apparent roads are around you, but you can start your trek through the \'trees\' or some nearby \'bushes\'. \
+    "stage1": { "description": "You wake up in a small clearing in the woods. \nYou can hear birds chirp around you as you start looking around. \n\
+No apparent roads are around you, but you can start your trek through the \'trees\' or some nearby \'bushes\'. \n\
 Do you wish you to go through the \'bushes\', or the \'trees\'?",
                "choices": {
                     "trees": {"text": "You start heading through the trees. After a couple minutes \
