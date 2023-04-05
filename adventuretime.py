@@ -63,10 +63,10 @@ screens = {
 
 def game_start():
     if player_info["name"] == "":
-        player_info["name"] = input("Please input your name: ")
+        player_info["name"] = input("Hi!\nPlease input your name: ")
         print(f"Hello {player_info['name']}, welcome to the game!\nDuring your adventure you will be asked to give inputs.\
-              \nI will try to interpret what you want as well as I can, but please refrain from \
-              using both of the keywords in the same sentence.\n\nLet's begin!")
+        \nI will try to interpret what you want as well as I can, but please refrain from \
+        using both of the keywords in the same sentence.\n\nLet's begin!")
 
 def help(curr_stage:str):
     print("Valid inputs are:\n")
@@ -77,12 +77,12 @@ def help(curr_stage:str):
 
 def troll_fight(score:int) -> int:
     print("You pull the sword you fished up earlier from your back and go toe to toe with the huge troll snearing in your face. \
-        Against all odds you stand your ground. The troll swing wildly around itself for you while you dodge and weave underneath it and between its legs. \
-        After a long and arduous fight, you manage to cut its ankle and it falls to the ground. \
-        With determination in your eyes, you lift the sword high up into the air and thrust it into the trolls left eye as deep as you can. \
-        Blood spouts like a huge fountain all over the floor, and you emerge victorious. \
-        In the back of the trolls' cave, you find lots \
-        of riches and many interesting artifacts. You take some trophies for yourself and head on your way.")
+    Against all odds you stand your ground. The troll swing wildly around itself for you while you dodge and weave underneath it and between its legs. \
+    After a long and arduous fight, you manage to cut its ankle and it falls to the ground. \
+    With determination in your eyes, you lift the sword high up into the air and thrust it into the trolls left eye as deep as you can. \
+    Blood spouts like a huge fountain all over the floor, and you emerge victorious. \
+    In the back of the trolls' cave, you find lots \
+    of riches and many interesting artifacts. You take some trophies for yourself and head on your way.")
 
     return score + 25
 
@@ -101,14 +101,15 @@ def choose_path(score:int) -> int:
                 choice = i
                 invalid = False
             else:
-                print(f"Invalid choice! Please try again with a different choice. \nHint: Type \"Help\" if you'd like to see the valid choices.\n")
+                print(f"Invalid choice! Please try again with a different choice. \
+                \nHint: Type \"Help\" if you'd like to see the valid choices.\n")
 
-    if choice == "fish" and curr_stage == "stage2":
+    if choice == ["fish"] and curr_stage == "stage2":
         player_info["sword"] = True
 
     print(screens[curr_stage]["choices"][choice]["text"])
 
-    if "enter" in choice and curr_stage == "stage3": # If the fight is triggered, print out the fight and add some points to the tally
+    if ["enter"] in choice and curr_stage == "stage3": # If the fight is triggered, print out the fight and add some points to the tally
         score = troll_fight(score)
 
     player_info["score"] = score + screens[curr_stage]["choices"][choice]["score"]
