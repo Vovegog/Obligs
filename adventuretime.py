@@ -96,9 +96,9 @@ def choose_path(score:int) -> int:
         if choice == ["help"]:
             help(curr_stage)
 
-        for i in choice: # Check if any of the available choices are in the split() list we created
-            if i in screens[curr_stage]["choices"] and not "help":
-                choice = i
+        for text in choice: # Check if any of the available choices are in the split() list we created
+            if text in screens[curr_stage]["choices"] and not "help":
+                choice = text
                 invalid = False
             else:
                 print(f"Invalid choice! Please try again with a different choice. \
