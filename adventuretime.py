@@ -86,38 +86,43 @@ def troll_fight(score:int) -> int:
 
     return score + 25
 
-def choose_path(score:int) -> int:
+def choose_path(score:int, stage:int) -> int:
     invalid = True
     curr_stage = "stage" + str(stage)
-    print(screens[curr_stage]["description"])
-    while invalid == True:
-        choice = input("What do you want to do?\n").lower().split()
+    keys = list(screens[curr_stage]["choices"].keys())
 
+    while invalid == True:
+        print(screens[curr_stage]["description"])
+        choice = input("What do you want to do?\n").lower().split()
+    
         if choice == ["help"]:
             help(curr_stage)
 
-        for text in choice: # Check if any of the available choices are in the split() list we created
-            if text in screens[curr_stage]["choices"] and not "help":
-                choice = text
+        print(choice)
+        print(keys)
+
+        for i in keys: # Check if any of the available choices are in the split() list we created
+            if choice in keys and not "help":
+                choice = str(choice)
                 invalid = False
             else:
                 print(f"Invalid choice! Please try again with a different choice. \
                 \nHint: Type \"Help\" if you'd like to see the valid choices.\n")
 
-    if choice == ["fish"] and curr_stage == "stage2":
+    if choice == "fish" and curr_stage == "stage2":
         player_info["sword"] = True
 
     print(screens[curr_stage]["choices"][choice]["text"])
 
-    if ["enter"] in choice and curr_stage == "stage3": # If the fight is triggered, print out the fight and add some points to the tally
+    if choice == "enter" and curr_stage == "stage3": # If the fight is triggered, print out the fight and add some points to the tally
         score = troll_fight(score)
 
-    player_info["score"] = score + screens[curr_stage]["choices"][choice]["score"]
+    return score + screens[curr_stage]["choices"][choice]["score"]
 
 
 while not game_over:
     game_start()
-    choose_path(player_info["score"])
+    player_info["score"] = choose_path(player_info["score"],stage)
     stage += 1
     if stage > len(screens):
         game_over = True
