@@ -64,7 +64,9 @@ screens = {
 def game_start():
     if player_info["name"] == "":
         player_info["name"] = input("Please input your name: ")
-        print(f"Hello {player_info['name']}, welcome to the game!\nDuring your adventure you will be asked to give inputs.\nI will try to interpret what you want as well as I can, but please refrain from using both of the keywords in the same sentence.\n\nLet's begin!")
+        print(f"Hello {player_info['name']}, welcome to the game!\nDuring your adventure you will be asked to give inputs.\
+              \nI will try to interpret what you want as well as I can, but please refrain from \
+              using both of the keywords in the same sentence.\n\nLet's begin!")
 
 def help(curr_stage:str):
     print("Valid inputs are:\n")
@@ -91,10 +93,10 @@ def choose_path(score:int) -> int:
     while invalid == True:
         choice = input("What do you want to do?\n").lower().split()
 
-        if choice == "help":
+        if choice == ["help"]:
             help(curr_stage)
 
-        for i in choice:
+        for i in choice: # Check if any of the available choices are in the split() list we created
             if i in screens[curr_stage]["choices"] and not "help":
                 choice = i
                 invalid = False
@@ -106,7 +108,7 @@ def choose_path(score:int) -> int:
 
     print(screens[curr_stage]["choices"][choice]["text"])
 
-    if "enter" in choice and curr_stage == "stage3":
+    if "enter" in choice and curr_stage == "stage3": # If the fight is triggered, print out the fight and add some points to the tally
         score = troll_fight(score)
 
     player_info["score"] = score + screens[curr_stage]["choices"][choice]["score"]
