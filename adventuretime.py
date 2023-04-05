@@ -157,3 +157,4 @@ while not game_over:
 
 print(f"The game is over, {player_info['name']}. You reached stage {stage} and earned a score of {player_info['score']}.")
 print("Congratulations!")
+input("Thanks for playing.")
