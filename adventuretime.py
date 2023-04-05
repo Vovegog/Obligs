@@ -8,10 +8,9 @@
 # 8. Allow for adding more "choices" --
 # 9. No break/continue --
 
-
+import os
 
 player_info = { "name": "", "score": 0, "sword": False }
-has_sword = False
 game_over = False
 stage = 1
 
@@ -61,6 +60,15 @@ screens = {
             }
 }
 
+def clear_screen():
+    """
+    Clears the console screen.
+    """
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 def game_start():
     if player_info["name"] == "":
         player_info["name"] = input("Hi!\nPlease input your name: ")
@@ -72,7 +80,7 @@ def help(curr_stage:str):
     print("Valid inputs are:\n")
     for key in screens[curr_stage]["choices"].keys():
         print(key)
-    print("\n")
+    print("\nYou can make a sentence with the word you wish to use.")
     choose_path(player_info["score"])   
 
 def troll_fight(score:int) -> int:
@@ -86,35 +94,55 @@ def troll_fight(score:int) -> int:
 
     return score + 25
 
+# def check_legal_input(choice:str, valid_choices:list, runtime:bool) -> str:
+#     for key in valid_choices:
+#         if key in choice:
+#             choice = key
+#             runtime = False
+#             return choice,runtime
+#         elif :
+#             print(f"Invalid choice! Please try again with a different choice. \
+#             \nHint: Type \"Help\" if you'd like to see the valid choices.\n")
+#         else:
+#             check_legal_input(choice,valid_choices,runtime)
+
 def choose_path(score:int, stage:int) -> int:
     invalid = True
     curr_stage = "stage" + str(stage)
-    keys = list(screens[curr_stage]["choices"].keys())
+    valid_choices = list(screens[curr_stage]["choices"].keys())
 
     while invalid == True:
         print(screens[curr_stage]["description"])
-        choice = input("What do you want to do?\n").lower().split()
-    
-        if choice == ["help"]:
+        choice = input("\nWhat do you want to do?\n\n").lower()
+
+        clear_screen()
+
+        if choice == "help":
             help(curr_stage)
 
-        print(choice)
-        print(keys)
+        # print(choice)
+        # print(valid_choices)
 
-        for i in keys: # Check if any of the available choices are in the split() list we created
-            if choice in keys and not "help":
-                choice = str(choice)
+#        choice,invalid = check_legal_input(choice,valid_choices,invalid)
+
+        for key in valid_choices:
+            if key in choice:
+                choice = key
                 invalid = False
+                clear_screen()
             else:
+                clear_screen()
                 print(f"Invalid choice! Please try again with a different choice. \
                 \nHint: Type \"Help\" if you'd like to see the valid choices.\n")
 
     if choice == "fish" and curr_stage == "stage2":
         player_info["sword"] = True
 
+    clear_screen()
+
     print(screens[curr_stage]["choices"][choice]["text"])
 
-    if choice == "enter" and curr_stage == "stage3": # If the fight is triggered, print out the fight and add some points to the tally
+    if choice == "enter" and curr_stage == "stage3" and player_info["sword"] == True: # If the fight is triggered, print out the fight and add some points to the tally
         score = troll_fight(score)
 
     return score + screens[curr_stage]["choices"][choice]["score"]
@@ -127,4 +155,5 @@ while not game_over:
     if stage > len(screens):
         game_over = True
 
-print(f"The game is over. You reached stage {stage} and earned a score of {player_info['score']}.")
+print(f"The game is over, {player_info['name']}. You reached stage {stage} and earned a score of {player_info['score']}.")
+print("Congratulations!")
