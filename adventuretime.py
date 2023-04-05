@@ -16,13 +16,13 @@ stage = 1
 
 screens = {
     "stage1": { "description": "You wake up in a small clearing in the woods. You can hear birds chirp around you as you start looking around. \
-               No apparent roads are around you, but you can start your trek through the \'trees\' or some nearby \'bushes\'. \
-               Do you wish you to go through the \'bushes\', or the \'trees\'?",
+No apparent roads are around you, but you can start your trek through the \'trees\' or some nearby \'bushes\'. \
+Do you wish you to go through the \'bushes\', or the \'trees\'?",
                "choices": {
                     "trees": {"text": "You start heading through the trees. After a couple minutes \
-                              you realize there's no end to the forest. You head back.", "score": -5},
+you realize there's no end to the forest. You head back.", "score": -5},
                     "bushes": {"text": "You start moving through the nearby bushes, and after a while the forest \
-                               starts clearing out a little bit. You arrive at a small lake.", "score": 4}
+starts clearing out a little bit. You arrive at a small lake.", "score": 4}
                 }
             },
     "stage2": { "description": "You look around the edge of the lake, nearby you can see a fishing rod and a small \
